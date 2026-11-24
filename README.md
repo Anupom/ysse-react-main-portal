@@ -1,19 +1,20 @@
-# YSSE Main Portal (Multi-Page React Application)
+# YSSE Main Portal (React + Tailwind CSS)
 
-A structured, responsive multi-page web portal built for the **Week 7 React Assignment** (YSSE IT Department · Web Development & CMS Wing).
+A modern, responsive multi-page web portal built for the **Week 8 Assignment** (YSSE IT Department · Web Development & CMS Wing), upgrading the Week 7 React Router application with **Tailwind CSS**.
 
 ## Features
-- Multi-page navigation using **React Router DOM** (`Home`, `About`, `Notices`, `Programs`, `Program Details`, `Contact`, and a custom `404 Not Found` page).
-- Shared reusable layout (`Navbar` and `Footer`) rendered via `<Outlet />`.
+- Styled completely with **Tailwind CSS** utility classes, responsive breakpoints (`sm:`, `md:`, `lg:`), Flexbox, and CSS Grid.
+- Multi-page client-side routing using **React Router DOM** (`Home`, `About`, `Notices`, `Programs`, `Program Details`, `Contact`, and `404 Not Found`).
+- Upgraded **Home Page** including Hero, About Preview, Featured Programs, Latest Notices, and Upcoming Events sections.
+- Reusable shared layout (`Navbar` with mobile menu & `Footer`) rendered via `<Outlet />`.
 - Dynamic program details routing (`/programs/:id`) using `useParams()`.
-- Interactive search & category filtering on Notices and Programs pages.
-- Controlled Contact/Inquiry form with real-time field validation and submission feedback.
+- Interactive search, category filtering, and controlled Contact/Inquiry form with validation feedback.
 
 ## Technologies Used
 - React.js (Vite)
+- Tailwind CSS
 - React Router DOM
 - JavaScript (ES6+)
-- CSS3 (Responsive Grid & Flexbox)
 
 ## Installation & Running Locally
 ```bash

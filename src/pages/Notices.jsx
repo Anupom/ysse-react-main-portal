@@ -15,7 +15,7 @@ function Notices() {
     "Internship Notice",
     "Event Announcement",
     "Training & Workshop",
-    "Recruitment Notice"
+    "Recruitment Notice",
   ];
 
   const filteredNotices = noticesData.filter((notice) => {
@@ -38,21 +38,21 @@ function Notices() {
         breadcrumb="Notices"
       />
 
-      <section className="section">
-        <div className="container">
-          {/* Filter & Search Bar */}
-          <div className="filter-bar">
+      <section className="py-14 md:py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Search & Category Filter */}
+          <div className="bg-white border border-slate-200 rounded-xl p-4 mb-8 shadow-xs flex flex-col sm:flex-row gap-3.5">
             <input
               type="text"
-              className="filter-input"
               placeholder="Search notices by keyword..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              className="flex-1 rounded-lg border border-slate-300 px-4 py-2.5 text-sm focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 focus:outline-none"
             />
             <select
-              className="filter-select"
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
+              className="sm:w-64 rounded-lg border border-slate-300 px-3.5 py-2.5 text-sm bg-white focus:border-teal-600 focus:ring-2 focus:ring-teal-500/20 focus:outline-none"
             >
               {categories.map((cat) => (
                 <option key={cat} value={cat}>
@@ -73,11 +73,15 @@ function Notices() {
             )}
           </div>
 
-          {/* Conditional Rendering for Empty State */}
+          {/* Conditional Empty State */}
           {filteredNotices.length === 0 ? (
-            <div className="empty-state">
-              <h3>No notices available matching your criteria.</h3>
-              <p>Try clearing your search keyword or selecting a different notice category.</p>
+            <div className="bg-white border-2 border-dashed border-slate-300 rounded-2xl p-12 text-center">
+              <h3 className="text-lg font-bold text-slate-900 mb-2">
+                No notices available matching your criteria.
+              </h3>
+              <p className="text-sm text-slate-600 mb-6">
+                Try clearing your search keyword or selecting a different notice category.
+              </p>
               <Button
                 variant="primary"
                 onClick={() => {
@@ -89,7 +93,7 @@ function Notices() {
               </Button>
             </div>
           ) : (
-            <div className="grid-3">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
               {filteredNotices.map((notice) => (
                 <NoticeCard
                   key={notice.id}
@@ -104,14 +108,26 @@ function Notices() {
 
       {/* Notice Details Modal */}
       {activeNotice && (
-        <div className="modal-overlay" onClick={() => setActiveNotice(null)}>
-          <div className="modal-box" onClick={(e) => e.stopPropagation()}>
-            <div className="notice-meta">
-              <span className="notice-badge">{activeNotice.category}</span>
-              <span className="notice-date">📅 {activeNotice.date}</span>
+        <div
+          className="fixed inset-0 z-50 bg-slate-900/65 backdrop-blur-xs flex items-center justify-center p-4"
+          onClick={() => setActiveNotice(null)}
+        >
+          <div
+            className="bg-white rounded-2xl max-w-lg w-full p-6 sm:p-7 shadow-xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex items-center justify-between gap-2 mb-3">
+              <span className="bg-teal-50 text-teal-800 text-xs font-bold px-2.5 py-1 rounded-md">
+                {activeNotice.category}
+              </span>
+              <span className="text-xs text-slate-500">📅 {activeNotice.date}</span>
             </div>
-            <h3>{activeNotice.title}</h3>
-            <p className="modal-details">{activeNotice.details}</p>
+            <h3 className="text-xl font-bold text-slate-900 mb-3">
+              {activeNotice.title}
+            </h3>
+            <p className="text-sm text-slate-600 leading-relaxed mb-6">
+              {activeNotice.details}
+            </p>
             <Button variant="primary" onClick={() => setActiveNotice(null)}>
               Close
             </Button>

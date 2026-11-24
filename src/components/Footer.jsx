@@ -2,58 +2,78 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="container footer-grid">
-        <div className="footer-col brand-col">
-          <div className="footer-brand">
-            <span className="logo-mark">YSSE</span>
-            <strong>YSSE Main Portal</strong>
+    <footer className="bg-slate-900 text-slate-300 pt-14 border-t border-slate-800">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Brand Column */}
+          <div>
+            <div className="flex items-center gap-2.5 text-white mb-3">
+              <span className="bg-teal-600 text-white font-extrabold text-xs px-2.5 py-1.5 rounded-md">
+                YSSE
+              </span>
+              <strong className="text-lg font-bold">YSSE Main Portal</strong>
+            </div>
+            <p className="text-sm text-slate-400 leading-relaxed mb-3">
+              Youth School for Social Entrepreneurs (YSSE) empowers young changemakers through leadership, skill development, and collaborative social innovation.
+            </p>
+            <p className="text-xs text-teal-400">
+              * Academic React + Tailwind CSS demonstration for Week 8 Assignment.
+            </p>
           </div>
-          <p className="footer-desc">
-            Youth School for Social Entrepreneurs (YSSE) empowers youth through leadership, social entrepreneurship, skill development, and collaborative innovation.
-          </p>
-          <p className="sample-disclaimer">
-            * Note: This portal is an academic React demonstration built for the Week 7 Internship Assignment.
-          </p>
-        </div>
 
-        <div className="footer-col">
-          <h4>Quick Links</h4>
-          <ul className="footer-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About YSSE</Link></li>
-            <li><Link to="/notices">Notice Board</Link></li>
-            <li><Link to="/programs">Our Programs</Link></li>
-            <li><Link to="/contact">Contact / Inquiry</Link></li>
-          </ul>
-        </div>
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
+              Quick Links
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link to="/" className="hover:text-teal-400 transition-colors">Home</Link></li>
+              <li><Link to="/about" className="hover:text-teal-400 transition-colors">About YSSE</Link></li>
+              <li><Link to="/notices" className="hover:text-teal-400 transition-colors">Notice Board</Link></li>
+              <li><Link to="/programs" className="hover:text-teal-400 transition-colors">Our Programs</Link></li>
+              <li><Link to="/contact" className="hover:text-teal-400 transition-colors">Contact / Inquiry</Link></li>
+            </ul>
+          </div>
 
-        <div className="footer-col">
-          <h4>Program Tracks</h4>
-          <ul className="footer-links">
-            <li><Link to="/programs/1">Virtual Internship</Link></li>
-            <li><Link to="/programs/2">Social Entrepreneurship</Link></li>
-            <li><Link to="/programs/3">Web & Tech Innovation</Link></li>
-            <li><Link to="/programs/4">Youth Leadership</Link></li>
-          </ul>
-        </div>
+          {/* Program Tracks */}
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
+              Featured Tracks
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li><Link to="/programs/1" className="hover:text-teal-400 transition-colors">Virtual Internship</Link></li>
+              <li><Link to="/programs/2" className="hover:text-teal-400 transition-colors">Social Entrepreneurship</Link></li>
+              <li><Link to="/programs/3" className="hover:text-teal-400 transition-colors">Web & Tech Innovation</Link></li>
+              <li><Link to="/programs/4" className="hover:text-teal-400 transition-colors">Youth Leadership</Link></li>
+            </ul>
+          </div>
 
-        <div className="footer-col">
-          <h4>Connect With Us</h4>
-          <p className="footer-contact-item">📍 Dhaka, Bangladesh</p>
-          <p className="footer-contact-item">✉️ info@ysseglobal.org (Placeholder)</p>
-          <div className="social-placeholders">
-            <a href="#facebook" onClick={(e) => e.preventDefault()} aria-label="Facebook">FB</a>
-            <a href="#linkedin" onClick={(e) => e.preventDefault()} aria-label="LinkedIn">IN</a>
-            <a href="#youtube" onClick={(e) => e.preventDefault()} aria-label="YouTube">YT</a>
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-4">
+              Connect With Us
+            </h4>
+            <p className="text-sm text-slate-400 mb-2">📍 Dhaka, Bangladesh</p>
+            <p className="text-sm text-slate-400 mb-4">✉️ info@ysseglobal.org (Placeholder)</p>
+            <div className="flex items-center gap-2.5">
+              {["FB", "IN", "YT"].map((social) => (
+                <a
+                  key={social}
+                  href={`#${social.toLowerCase()}`}
+                  onClick={(e) => e.preventDefault()}
+                  className="w-9 h-9 rounded-full bg-slate-800 hover:bg-teal-700 text-teal-400 hover:text-white flex items-center justify-center text-xs font-bold transition-colors"
+                >
+                  {social}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="footer-bottom">
-        <div className="container footer-bottom-inner">
-          <p>&copy; {new Date().getFullYear()} YSSE IT Department · Web Development & CMS Wing · Week 7 React Portal</p>
-        </div>
+      {/* Bottom Copyright */}
+      <div className="border-t border-slate-800 py-5 text-center text-xs sm:text-sm text-slate-400 px-4">
+        &copy; {new Date().getFullYear()} YSSE IT Department · Web Development & CMS Wing · Week 8 Tailwind CSS Portal
       </div>
     </footer>
   );

@@ -4,9 +4,9 @@ import Footer from "../components/Footer";
 
 function MainLayout() {
   return (
-    <div className="portal-wrapper">
+    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800 antialiased">
       <Navbar />
-      <main className="main-content">
+      <main className="flex-1">
         <Outlet />
       </main>
       <Footer />
